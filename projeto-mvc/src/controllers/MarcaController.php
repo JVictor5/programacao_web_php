@@ -11,7 +11,7 @@ class MarcaController
     {
         require_once ("../src/views/marca/marca.php");
     }
-
+    
     public function new($params)
     {
         $marca = new Marca($_POST['marca'], $_POST['pais']);

@@ -52,11 +52,6 @@ CREATE TABLE `marcas` (
 -- Despejando dados para a tabela `marcas`
 --
 
-INSERT INTO
-    `marcas` (`idmarca`, `marca`, `pais`)
-VALUES (1, 'Toyota', 'Japon'),
-    (2, 'Toyota2', 'Japon');
-
 -- --------------------------------------------------------
 
 --
@@ -71,14 +66,6 @@ CREATE TABLE `proprietario` (
 -- Despejando dados para a tabela `proprietario`
 --
 
-INSERT INTO
-    `proprietario` (
-        `idproprietario`, `nome`, `endereco`, `telefone`
-    )
-VALUES (1, NULL, 'asada', NULL),
-    (2, NULL, 'asada', NULL),
-    (3, 'asda', 'asada', '4523245');
-
 -- --------------------------------------------------------
 
 --
@@ -92,14 +79,6 @@ CREATE TABLE `veiculo` (
 --
 -- Despejando dados para a tabela `veiculo`
 --
-
-INSERT INTO
-    `veiculo` (
-        `idveiculo`, `idmarca`, `proprietario_idproprietario`, `modelo`, `ano`, `cor`
-    )
-VALUES (6, 2, 3, '1', 1, '1'),
-    (7, 2, 3, '1', 1, '1');
-
 --
 -- Índices para tabelas despejadas
 --
@@ -108,9 +87,7 @@ VALUES (6, 2, 3, '1', 1, '1'),
 -- Índices de tabela `manutencao`
 --
 ALTER TABLE `manutencao`
-ADD PRIMARY KEY (
-    `idManutencao`
-),
+ADD PRIMARY KEY (`idManutencao`),
 ADD KEY `fk_Manutencao_veiculo1_idx` (`idveiculo`);
 
 --

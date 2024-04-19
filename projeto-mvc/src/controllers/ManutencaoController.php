@@ -21,7 +21,7 @@ class ManutencaoController
         $veiculo = $veiculoDAO->getById($_POST['veiculo']);
 
         $manutencao = new Manutencao(
-            
+
             $veiculo['idveiculo'],
             $_POST['tipo'],
             $_POST['data'],

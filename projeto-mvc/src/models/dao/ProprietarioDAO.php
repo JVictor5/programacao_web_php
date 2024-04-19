@@ -47,5 +47,5 @@ class ProprietarioDAO
             return 0;
         }
     }
-
+    
 }
