@@ -2,19 +2,17 @@
 
 namespace Php\Projetomvc\Models\Domain;
 
-use Php\Projetomvc\Models\Domain\Marca;
-use Php\Projetomvc\Models\Domain\Proprietario;
 
 class Veiculo
 {
     private $idveiculo;
-    private Marca $idmarca;
-    private Proprietario $proprietario;
+    private $idmarca;
+    private $proprietario;
     private $modelo;
     private $ano;
     private $cor;
 
-    public function __construct(Marca $idmarca, Proprietario $proprietario, $modelo, $ano, $cor)
+    public function __construct( $idmarca,  $proprietario, $modelo, $ano, $cor)
     {
         $this->setIdMarca($idmarca);
         $this->setProprietario($proprietario);
@@ -54,12 +52,12 @@ class Veiculo
         return $this->cor;
     }
 
-    public function setIdMarca(Marca $idmarca)
+    public function setIdMarca( $idmarca)
     {
         $this->idmarca = $idmarca;
     }
 
-    public function setProprietario(Proprietario $proprietario)
+    public function setProprietario( $proprietario)
     {
         $this->proprietario = $proprietario;
     }

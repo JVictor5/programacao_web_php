@@ -6,7 +6,7 @@ class Manutencao
 {
 
     private $idManutencao;
-    private Veiculo $idVeiculo;
+    private $idVeiculo;
     private $tipo;
     private $data;
     private $descricao;

@@ -18,8 +18,8 @@ class VeiculoDAO
         try {
             $sql = "INSERT INTO veiculo (idmarca, proprietario_idproprietario, modelo, ano, cor) VALUES (:marca, :dono, :modelo, :ano, :cor)";
             $p = $this->conexao->getConexao()->prepare($sql);
-            $p->bindValue(":marca", $veiculo->getIdMarca()->getIdMarca());
-            $p->bindValue(":dono", $veiculo->getProprietario()->getNome());
+            $p->bindValue(":marca", $veiculo->getIdMarca());
+            $p->bindValue(":dono", $veiculo->getProprietario());
             $p->bindValue(":modelo", $veiculo->getModelo());
             $p->bindValue(":ano", $veiculo->getAno());
             $p->bindValue(":cor", $veiculo->getCor());

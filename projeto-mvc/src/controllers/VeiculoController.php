@@ -28,8 +28,8 @@ class VeiculoController
         $proprietario = $proprietarioDAO->getById($_POST['dono']);
 
         $veiculo = new Veiculo(
-            new marca($marca['idmarca'], $marca['marca'], $marca['pais']),
-            new proprietario($proprietario['idproprietario'], $proprietario['nome'], $proprietario['endereco'], $proprietario['telefone']),
+            $_POST['marca'],
+            $_POST['dono'],
             $_POST['modelo'],
             $_POST['ano'],
             $_POST['cor']
