@@ -44,6 +44,11 @@ class Manutencao
         return $this->descricao;
     }
 
+    public function setId($idManutencao)
+    {
+        $this->idManutencao = $idManutencao;
+    }
+
     public function setIdVeiculo($idVeiculo)
     {
         $this->idVeiculo = $idVeiculo;

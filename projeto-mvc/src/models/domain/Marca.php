@@ -29,6 +29,10 @@ class Marca
         return $this->pais;
     }
 
+    public function setIdMarca(int $idmarca)
+    {
+        $this->idmarca = $idmarca;
+    }
     public function setMarca(string $marca)
     {
         $this->marca = $marca;

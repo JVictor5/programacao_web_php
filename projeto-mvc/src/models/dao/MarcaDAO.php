@@ -27,10 +27,12 @@ class MarcaDAO
     }
     public function getAll()
     {
-        $sql = "SELECT * from marcas";
-        $p = $this->conexao->getConexao()->prepare($sql);
-        $p->execute();
-        return $p->fetchAll();
+        try {
+            $sql = "SELECT * from marcas";
+            return $this->conexao->getConexao()->query($sql);
+        } catch (\Exception $e) {
+            return 0;
+        }
     }
 
     public function getById($id)
@@ -46,4 +48,29 @@ class MarcaDAO
         }
     }
 
+
+    public function update(Marca $marca)
+    {
+        try {
+            $sql = "UPDATE marcas SET marca = :marca, pais = :pais WHERE idmarca = :id";
+            $p = $this->conexao->getConexao()->prepare($sql);
+            $p->bindValue(":marca", $marca->getMarca());
+            $p->bindValue(":pais", $marca->getPais());
+            $p->bindValue(":id", $marca->getIdMarca());
+            return $p->execute();
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    public function delete($id)
+    {
+        try {
+            $sql = "DELETE from marcas where idmarca = :id";
+            $p = $this->conexao->getConexao()->prepare($sql);
+            $p->bindValue(":id", $id);
+            return $p->execute();
+        } catch (\Exception $e) {
+            return 0;
+        }
+    }
 }

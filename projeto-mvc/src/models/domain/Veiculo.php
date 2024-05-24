@@ -12,7 +12,7 @@ class Veiculo
     private $ano;
     private $cor;
 
-    public function __construct( $idmarca,  $proprietario, $modelo, $ano, $cor)
+    public function __construct($idmarca, $proprietario, $modelo, $ano, $cor)
     {
         $this->setIdMarca($idmarca);
         $this->setProprietario($proprietario);
@@ -21,7 +21,7 @@ class Veiculo
         $this->setCor($cor);
     }
 
-  
+
     public function getIdVeiculo()
     {
         return $this->idveiculo;
@@ -52,12 +52,16 @@ class Veiculo
         return $this->cor;
     }
 
-    public function setIdMarca( $idmarca)
+    public function setIdveiculo(int $idveiculo)
+    {
+        $this->idveiculo = $idveiculo;
+    }
+    public function setIdMarca($idmarca)
     {
         $this->idmarca = $idmarca;
     }
 
-    public function setProprietario( $proprietario)
+    public function setProprietario($proprietario)
     {
         $this->proprietario = $proprietario;
     }

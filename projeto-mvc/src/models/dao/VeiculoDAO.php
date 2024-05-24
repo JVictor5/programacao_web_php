@@ -12,7 +12,6 @@ class VeiculoDAO
     {
         $this->conexao = new Conexao;
     }
-
     public function insert(Veiculo $veiculo)
     {
         try {
@@ -28,18 +27,25 @@ class VeiculoDAO
             return 0;
         }
     }
+
     public function getAll()
     {
-        $sql = "SELECT * from veiculo";
-        $p = $this->conexao->getConexao()->prepare($sql);
-        $p->execute();
-        return $p->fetchAll();
+        try {
+            $sql = "SELECT v.*, p.nome AS nome_proprietario, m.marca AS nome_marca FROM veiculo v JOIN proprietario p ON v.proprietario_idproprietario = p.idproprietario JOIN marcas m ON v.idmarca = m.idmarca";
+            return $this->conexao->getConexao()->query($sql);
+        } catch (\Exception $e) {
+            return 0;
+        }
     }
 
     public function getById($id)
     {
         try {
-            $sql = "SELECT * from veiculo WHERE idveiculo = :id";
+            $sql = "SELECT v.*, p.nome AS nome_proprietario, m.marca AS nome_marca 
+FROM veiculo v 
+JOIN proprietario p ON v.proprietario_idproprietario = p.idproprietario 
+JOIN marcas m ON v.idmarca = m.idmarca 
+WHERE v.idveiculo = :id";
             $p = $this->conexao->getConexao()->prepare($sql);
             $p->bindValue(":id", $id);
             $p->execute();
@@ -49,4 +55,33 @@ class VeiculoDAO
         }
     }
 
+    public function update(Veiculo $veiculo)
+    {
+        try {
+            $sql = "UPDATE veiculo SET idmarca = :idmarca, proprietario = :proprietario, modelo = :modelo, ano = :ano, cor = :cor WHERE idveiculo = :id";
+            $p = $this->conexao->getConexao()->prepare($sql);
+            $p->bindValue(":idmarca", $veiculo->getIdMarca());
+            $p->bindValue(":proprietario", $veiculo->getProprietario());
+            $p->bindValue(":modelo", $veiculo->getModelo());
+            $p->bindValue(":ano", $veiculo->getAno());
+            $p->bindValue(":cor", $veiculo->getCor());
+            $p->bindValue(":id", $veiculo->getIdVeiculo());
+            return $p->execute();
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            $sql = "DELETE FROM veiculo WHERE idveiculo = :id";
+            $p = $this->conexao->getConexao()->prepare($sql);
+            $p->bindValue(":id", $id);
+            return $p->execute();
+        } catch (\Exception $e) {
+            return 0;
+        }
+    }
 }
+?>

@@ -37,6 +37,11 @@ class Proprietario
         return $this->telefone;
     }
 
+    public function setId($idproprietario)
+    {
+        $this->idproprietario = $idproprietario;
+    }
+
     public function setNome($nome)
     {
         $this->nome = $nome;
