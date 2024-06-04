@@ -53,7 +53,7 @@ class ProprietarioDAO
     public function update(Proprietario $proprietario)
     {
         try {
-            $sql = "UPDATE marcas SET marca = :marca, pais = :pais WHERE idmarca = :id";
+            $sql = "UPDATE proprietario SET nome = :nome, endereco = :end, telefone =:tele WHERE idproprietario = :id";
             $p = $this->conexao->getConexao()->prepare($sql);
             $p->bindValue(":nome", $proprietario->getNome());
             $p->bindValue(":end", $proprietario->getEndereco());

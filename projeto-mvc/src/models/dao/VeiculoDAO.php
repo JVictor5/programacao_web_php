@@ -58,7 +58,7 @@ WHERE v.idveiculo = :id";
     public function update(Veiculo $veiculo)
     {
         try {
-            $sql = "UPDATE veiculo SET idmarca = :idmarca, proprietario = :proprietario, modelo = :modelo, ano = :ano, cor = :cor WHERE idveiculo = :id";
+            $sql = "UPDATE veiculo SET idmarca = :idmarca, proprietario_idproprietario = :proprietario, modelo = :modelo, ano = :ano, cor = :cor WHERE idveiculo = :id";
             $p = $this->conexao->getConexao()->prepare($sql);
             $p->bindValue(":idmarca", $veiculo->getIdMarca());
             $p->bindValue(":proprietario", $veiculo->getProprietario());

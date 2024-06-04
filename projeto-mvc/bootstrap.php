@@ -63,11 +63,22 @@ $r->post('/proprietario/deletar', 'Php\Projetomvc\Controllers\ProprietarioContro
 
 
 // ---------- Manutencao ----------
+
+$r->get('/manutencao', 'Php\Projetomvc\Controllers\ManutencaoController@index');
+
+$r->get('/manutencao/{action}/{status}', 'Php\Projetomvc\Controllers\ManutencaoController@index');
+
 $r->get('/manutencao/insert', 'Php\Projetomvc\Controllers\ManutencaoController@insert');
 
 $r->post('/manutencao/new', 'Php\Projetomvc\Controllers\ManutencaoController@new');
 
+$r->get('/manutencao/update/id/{id}', 'Php\Projetomvc\Controllers\ManutencaoController@update');
 
+$r->post('/manutencao/edit', 'Php\Projetomvc\Controllers\ManutencaoController@edit');
+
+$r->get('/manutencao/delet/id/{id}', 'Php\Projetomvc\Controllers\ManutencaoController@delet');
+
+$r->post('/manutencao/deletar', 'Php\Projetomvc\Controllers\ManutencaoController@deletar');
 
 
 $resultado = $r->handler();

@@ -58,7 +58,7 @@ class ProprietarioController
         $proprietario = new Proprietario($_POST['nome'], $_POST['end'], $_POST['tele']);
         $proprietario->setId($_POST['id']);
         $proprietarioDAO = new ProprietarioDAO();
-        if ($proprietarioDAO->insert($proprietario)) {
+        if ($proprietarioDAO->update($proprietario)) {
             header("location: /proprietario/insert/true");
         } else {
             header("location: /proprietario/insert/true");
